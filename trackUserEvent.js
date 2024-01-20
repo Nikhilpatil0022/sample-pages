@@ -2,8 +2,10 @@ let setAgentDetailsCopy = () => { }
 try {
     const setAgentDetailsApiUrl = 'https://intdev-api.starhealth.in/event/tracking/send/user/details'
     const callKafkaProducerApiUrl = 'https://intdev-api.starhealth.in/event/tracking/send/event/details'
+    console.log("declaring Api Urls")
 
         ; (() => {
+            console.log("Anonymous method declaration")
             /**
              * Namespace to track user behavior.
              */
@@ -129,6 +131,7 @@ try {
                 }
             }
 
+            console.log("Start the Operations")
             // start the operations
             /**
              * Start the event listeners and tracking.
@@ -242,6 +245,7 @@ try {
             window.trackUser = trackUser
         })()
 
+    console.log("TRACK USER START");
     trackUser.start({
         processData: results => { },
         actionItem: {
@@ -264,6 +268,7 @@ try {
     /**
      * Sets agent details and sends them to a specified API endpoint.
      */
+    console.log("SET AGENT DETAILS DECLARATION");
     const setAgentDetails = (agentId, agentName, agentEmail, channelId, channelName) => {
         let sessionId
         console.log("Function has been called")
@@ -309,12 +314,14 @@ try {
 
         return("Function call")
     }
+    console.log("ASSIGNING SET AGENT DETAILS TO COPY VARIABLE")
     setAgentDetailsCopy = setAgentDetails
 
     /**
      * Scheduler module for reading and sending tracking data.
      * @namespace
      */
+    console.log("WINDOW SCHEDULER INITAILIZATION")
     window.scheduler = () => {
         // Reads and sends tracking data to a Kafka producer API.
         const readAndSendData = () => {
@@ -340,8 +347,10 @@ try {
          * Calls the Kafka producer API to store data in a Kafka topic.
          * @param {string} data - Tracking data to be sent to Kafka.
          */
+        console.log("callKafkaProducerAPI INITIALIZATION")
         const callKafkaProducerAPI = data => {
             // Code to call the Kafka producer API here
+            console.log(" CALL TO KAFKA PRODUCER API")
             fetch(callKafkaProducerApiUrl, {
                 method: 'POST',
                 headers: {
@@ -367,6 +376,7 @@ try {
          */
         const scheduleTask = () => {
             // Run the task initially and every 15 seconds
+            console.log("scheduleTask INSIDE SCHEDULE TASK");
             readAndSendData()
             setInterval(readAndSendData, 15000)
         }
