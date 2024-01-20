@@ -266,6 +266,7 @@ try {
      */
     const setAgentDetails = (agentId, agentName, agentEmail, channelId, channelName) => {
         let sessionId
+        console.log("Function has been called")
 
         if (sessionStorage.getItem('sessionId')) {
             sessionId = sessionStorage.getItem('sessionId')
