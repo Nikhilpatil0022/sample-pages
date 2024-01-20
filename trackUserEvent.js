@@ -306,6 +306,8 @@ try {
                 }
             })
         }
+
+        return("Function call")
     }
     setAgentDetailsCopy = setAgentDetails
 
