@@ -3,6 +3,6 @@ export function multiplyBy2(num) {
 }
 
 
-document.addEventListner("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", ()=>{
   console.log("DOM LOADED")
 })
