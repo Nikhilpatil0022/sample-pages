@@ -11,6 +11,7 @@ try {
              */
             window.trackUser = {}
 
+            console.log("WINDOW OBJ", window);
             /**
              * Counter for generating unique local storage keys.
              */
